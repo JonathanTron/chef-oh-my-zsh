@@ -1,0 +1,9 @@
+default["oh-my-zsh"]["repository"]          = "https://github.com/robbyrussell/oh-my-zsh.git"
+default["oh-my-zsh"]["branch"]              = "master"
+default["oh-my-zsh"]["update_strategy"]     = "checkout" # "checkout" (no update), "sync" (update on each chef run)
+default["oh-my-zsh"]["options"]["theme"]               = "jonathan"
+default["oh-my-zsh"]["options"]["disable_auto_update"] = "false"
+default["oh-my-zsh"]["options"]["disable_auto_title"]  = "false"
+default["oh-my-zsh"]["options"]["disable_ls_colors"]   = "false"
+default["oh-my-zsh"]["options"]["case_sensitive"]      = "false"
+default["oh-my-zsh"]["options"]["plugins"]             = ["git", "bundler", "gem", "npm", "rails"]

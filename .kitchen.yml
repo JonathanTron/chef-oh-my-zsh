@@ -1,0 +1,34 @@
+---
+driver_plugin: vagrant
+
+platforms:
+- name: ubuntu-12.04
+  driver_config:
+    box: opscode-ubuntu-12.04
+    box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
+    require_chef_omnibus: true
+# - name: ubuntu-10.04
+#   driver_config:
+#     box: opscode-ubuntu-10.04
+#     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-10.04_provisionerless.box
+#     require_chef_omnibus: true
+# - name: centos-6.4
+#   driver_config:
+#     box: opscode-centos-6.4
+#     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-6.4_provisionerless.box
+#     require_chef_omnibus: true
+# - name: centos-5.9
+#   driver_config:
+#     box: opscode-centos-5.9
+#     box_url: https://opscode-vm.s3.amazonaws.com/vagrant/opscode_centos-5.9_provisionerless.box
+#     require_chef_omnibus: true
+
+suites:
+- name: default
+  run_list:
+  - "recipe[chef-solo-search]"
+  - "recipe[users::sysadmins]"
+  - "recipe[oh-my-zsh]"
+  - "recipe[minitest-handler]"
+  attributes: {}
+  data_bags_path: ./files/data_bags

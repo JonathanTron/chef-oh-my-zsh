@@ -1,0 +1,8 @@
+{
+  "id": "user_with_oh_my_zsh",
+  "groups": "sysadmin",
+  "shell": "/bin/zsh",
+  "oh-my-zsh": {
+    "enabled": true
+  }
+}
