@@ -19,7 +19,7 @@
 
 include_recipe "git"
 
-if Chef::Config[:solo] and not chef_solo_search_installed?
+if Chef::Config[:solo] and not node.run_list?("chef-solo-search")
   Chef::Log.warn("This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.")
 else
   search(:users, "shell:*zsh AND oh-my-zsh_enabled:true").each do |u|
