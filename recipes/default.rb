@@ -22,7 +22,8 @@ include_recipe "git"
 if Chef::Config[:solo] and not node.run_list?("recipe[chef-solo-search]")
   Chef::Log.warn("This recipe uses search. Chef Solo does not support search unless you install the chef-solo-search cookbook.")
 else
-  search(:users, "shell:*zsh AND oh-my-zsh_enabled:true").each do |u|
+  search(:users, "shell:*zsh").each do |u|
+    next unless u["oh-my-zsh"] && u["oh-my-zsh"]["enabled"]
     home = u["home"] || "/home/#{u["username"] || u["id"]}"
     repository = u["oh-my-zsh"]["repository"] || node["oh-my-zsh"]["repository"]
     branch = u["oh-my-zsh"]["branch"] || node["oh-my-zsh"]["branch"]
